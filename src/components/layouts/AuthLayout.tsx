@@ -7,7 +7,7 @@ export const AuthLayout = () => {
                 <div className="absolute top-0 left-0 w-full h-full">
                     <img
                         className="w-full h-full object-cover object-left-bottom"
-                        src="../../../public/images/1.jpg"
+                        src="./images/1.jpg"
                     />
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full bg-black z-10 opacity-30 "></div>

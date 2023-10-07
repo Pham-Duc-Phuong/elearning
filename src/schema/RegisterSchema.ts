@@ -4,7 +4,7 @@ export const RegisterSchema = z.object({
   taiKhoan: z.string().nonempty('Vui lòng nhập tài khoản'),
   matKhau: z.string().nonempty('Vui lòng nhập mật khấu'),
   hoTen: z.string().nonempty('Vui lòng nhập họ tên'),
-  soDt: z.string().nonempty('Vui lòng nhập số điện thoại'),
+  soDT: z.string().nonempty('Vui lòng nhập số điện thoại'),
   maNhom: z.string().nonempty('Vui lòng nhập mã nhóm'),
   email: z.string().nonempty('Vui lòng nhập email')
 })
