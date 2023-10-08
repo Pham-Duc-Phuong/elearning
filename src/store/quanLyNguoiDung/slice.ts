@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { GetUserByAccessToken, UserLogin } from 'types'
-import { GetUserByAccessTokenThunk, loginThunk } from '.'
+import { GetUserByAccessToken, UpdateUser, UserLogin } from 'types'
+import { GetUserByAccessTokenThunk, UpdateUserThunk, loginThunk } from '.'
 import { getAccessToken } from 'utils/getAccessToken'
 
 type quanLyNguoiDungInitialState = {
     accessToken?: string
-    UserLogin?: UserLogin | GetUserByAccessToken
+    UserLogin?: UserLogin | UpdateUser | GetUserByAccessToken
+    UserUpdate?: UpdateUser
     isFetchLoading?: boolean
 }
 
@@ -17,7 +18,11 @@ export const quanLyNguoiDungSlice = createSlice({
     name: 'quanLyNguoiDung',
     initialState,
     reducers: {
-
+        logOut: (state) => {
+            localStorage.removeItem('accessToken')
+            state.accessToken = undefined
+            state.UserLogin = undefined
+        }
     },
     extraReducers(builder) {
         builder
@@ -31,7 +36,11 @@ export const quanLyNguoiDungSlice = createSlice({
             .addCase(loginThunk.pending, (state) => {
                 state.isFetchLoading = true
             })
-            .addCase(GetUserByAccessTokenThunk.fulfilled, (state, {payload}) => {
+            .addCase(GetUserByAccessTokenThunk.fulfilled, (state, { payload }) => {
+                state.UserLogin = payload
+                state.UserUpdate = payload
+            })
+            .addCase(UpdateUserThunk.fulfilled, (state, { payload }) => {
                 state.UserLogin = payload
             })
     },

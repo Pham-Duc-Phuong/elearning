@@ -1,7 +1,14 @@
-import { useAppSelector } from "store"
+import { useAppDispatch, useAppSelector } from "store"
 import cn from 'classnames'
+import { PATH } from "constant"
+import { useNavigate } from "react-router-dom"
+import { quanLyNguoiDungActions } from "store/quanLyNguoiDung"
+import { useEffect } from "react"
+import { Avatar, Popover } from "."
 export const Header = () => {
-    const { UserLogin } = useAppSelector(state => state.quanLyNguoiDung)
+    const { UserLogin, accessToken } = useAppSelector(state => state.quanLyNguoiDung)
+    const navigate = useNavigate()
+    const dispatch = useAppDispatch()
     const dropDown = () => {
         const navbarUser = document.querySelector('#navbar-user')
         navbarUser.classList.toggle('phone:block')
@@ -12,6 +19,9 @@ export const Header = () => {
         document.querySelector('#icon-dark-mode').classList.toggle('fa-sun')
         document.querySelector('#icon-dark-mode').classList.toggle('fa-moon')
     }
+    useEffect(() => {
+        window
+    })
     return (
         <div className="shadow-lg dark:shadow-darkMode z-50 ">
             <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -21,30 +31,48 @@ export const Header = () => {
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Elearning</span>
                     </a>
                     <div className="flex items-center md:order-2">
-                        <button type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                            <span className="sr-only">Open user menu</span>
-                            <img className="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/logo.svg" alt="user photo" />
-                        </button>
+                        {
+                            !accessToken && <div>
+                                <span className="mr-[10px] cursor-pointer font-[500] a-header-1 inline-block" onClick={() => { navigate(PATH.login) }}>Đăng nhập</span>
+                                <span className="a-header-1 inline-block">|</span>
+                                <span className="ml-[10px] cursor-pointer font-[500] a-header-1 inline-block" onClick={() => { navigate(PATH.register) }}>Đăng ký</span></div>
+                        }
+                        {
+                            !!accessToken && (
+                                <Popover
+                                    className="!bg-blue-700"
+                                    content={
+                                        <div className="drop-down-header" id="user-dropdown">
+                                            <div className="px-4 py-3">
+                                                <span className="block text-sm text-gray-900 mb-[10px] font-[500]">{UserLogin?.hoTen}</span>
+                                                <span className="block text-sm  text-gray-500 truncate font-[500]">{UserLogin?.email}</span>
+                                            </div>
+                                            <ul className="py-2">
+                                                <li>
+                                                    <a href="#" className="a-header font-[500]" onClick={() => {
+                                                        navigate(PATH.account)
+                                                    }}>Thông tin tài khoản</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" className="a-header font-[500]" onClick={() => { dispatch(quanLyNguoiDungActions.logOut()) }}>Đăng xuất</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    }
+                                    trigger="click"
+                                    arrow={false}
+                                >
+                                    <Avatar size="large" className="cursor-pointer">
+                                        <i className="fa-regular fa-user text-20 text-white"></i>
+                                    </Avatar>
+                                </Popover>
+                            )
+                        }
                         <button id="theme-toggle" type="button" className="btn-darkMode" onClick={() => {
                             darkMode()
                         }}>
                             <i id="icon-dark-mode" className="fa-regular fa-moon text-[20px]"></i>
                         </button>
-                        {/* Dropdown menu */}
-                        <div className="drop-down-header" id="user-dropdown">
-                            <div className="px-4 py-3">
-                                <span className="block text-sm text-gray-900 dark:text-white">{UserLogin?.hoTen}</span>
-                                <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">{UserLogin?.email}</span>
-                            </div>
-                            <ul className="py-2" aria-labelledby="user-menu-button">
-                                <li>
-                                    <a href="#" className="a-header">Thông tin tài khoản</a>
-                                </li>
-                                <li>
-                                    <a href="#" className="a-header">Sign out</a>
-                                </li>
-                            </ul>
-                        </div>
                         <button id="btn-menu" type="button" className="btn-menu" onClick={() => {
                             dropDown()
                         }}>
@@ -53,11 +81,15 @@ export const Header = () => {
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M1 1h15M1 7h15M1 13h15" />
                             </svg>
                         </button>
+
+
                     </div>
                     <div className={cn("items-center justify-between md:block phone:hidden w-full md:w-auto md:order-1")} id="navbar-user">
                         <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
-                                <a href="#" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">Trang chủ</a>
+                                <a href="#" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" onClick={()=>{
+                                    navigate('/')
+                                }}>Trang chủ</a>
                             </li>
                             <li>
                                 <a href="#" className="a-header-1">Khóa học</a>

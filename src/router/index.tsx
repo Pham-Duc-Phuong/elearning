@@ -1,4 +1,4 @@
-import { AuthLayout, MainLayout } from "components"
+import { AuthLayout, HomeTemplate, MainLayout } from "components"
 import { PATH } from "constant"
 import { Admin, Login, Register } from "pages"
 import { Account } from "pages"
@@ -11,6 +11,10 @@ export const router: RouteObject[] = [
         path: '/',
         element: <MainLayout />,
         children: [
+            {
+                path: PATH.home,
+                element: <HomeTemplate />
+            },
             {
                 path: PATH.account,
                 element: <Account />

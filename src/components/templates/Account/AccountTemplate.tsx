@@ -1,24 +1,34 @@
-
+import { useState } from 'react'
+import { AccountInfo, Password, History } from '.'
 export const AccountTemplate = () => {
+  const [activeTabs, setActiveTabs] = useState(1)
+  const ActiveTabs = (index) => {
+    setActiveTabs(index)
+  }
   return (
     <div>
-      <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-        <li className="mr-2">
-          <a href="#" className="inline-block px-4 py-3 text-white bg-blue-600 rounded-lg">Tab 1</a>
-        </li>
-        <li className="mr-2">
-          <a href="#" className="tabs">Tab 2</a>
-        </li>
-        <li className="mr-2">
-          <a href="#" className="tabs">Tab 3</a>
-        </li>
-        <li className="mr-2">
-          <a href="#" className="tabs">Tab 4</a>
-        </li>
-        <li>
-          <a className="inline-block px-4 py-3 text-gray-400 cursor-not-allowed dark:text-gray-500">Tab 5</a>
-        </li>
-      </ul>
+      <div>
+        <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 border-b pb-[15px]">
+          <li className="mr-2">
+            <a href="#" className={activeTabs === 1 ? 'tabs-active' : 'tabs'} onClick={() => ActiveTabs(1)}>Thông tin tài khoản</a>
+          </li>
+          <li className="mr-2">
+            <a href="#" className={activeTabs === 2 ? 'tabs-active' : 'tabs'} onClick={() => ActiveTabs(2)}>Đổi mật khẩu</a>
+          </li>
+          <li className="mr-2">
+            <a href="#" className={activeTabs === 3 ? 'tabs-active' : 'tabs'} onClick={() => ActiveTabs(3)}>Khóa học đã đăng ký</a>
+          </li>
+        </ul>
+      </div>
+      <div className={activeTabs === 1 ? 'block h-[800px]' : 'hidden'}>
+        <AccountInfo />
+      </div>
+      <div className={activeTabs === 2 ? 'block h-[800px]' : 'hidden'}>
+        <Password />
+      </div>
+      <div className={activeTabs === 3 ? 'block h-[800px]' : 'hidden'}>
+        <History />
+      </div>
     </div>
   )
 }

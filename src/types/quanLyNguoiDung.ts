@@ -11,3 +11,4 @@ export type GetUserByAccessToken = Omit<UserLogin, 'accessToken'> & {
     matKhau: string
     chiTietKhoaHocGhiDanh:[]
 }
+export type UpdateUser = Omit<GetUserByAccessToken, 'chiTietKhoaHocGhiDanh'>
