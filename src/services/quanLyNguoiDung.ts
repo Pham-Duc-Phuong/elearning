@@ -1,7 +1,7 @@
 import { apiInstance } from "constant"
 import { RegisterSchemaType } from "schema"
 import { LoginSchemaType } from "schema/LoginSchema"
-import { UserLogin } from "types"
+import { GetUserByAccessToken, UserLogin } from "types"
 
 const api = apiInstance({
     baseURL: import.meta.env.VITE_QUAN_LY_NGUOI_DUNG_API
@@ -9,8 +9,8 @@ const api = apiInstance({
 
 export const quanLyNguoiDungService = {
     register: (data: RegisterSchemaType) => api.post('/DangKy', data),
-    login : (data: LoginSchemaType) => api.post<ApiResponse<UserLogin>>('/DangNhap', data),
-    // getUserByAccessToken: () => api.post<
+    login : (data: LoginSchemaType) => api.post<UserLogin>('/DangNhap', data),
+    getUserByAccessToken: () => api.post<GetUserByAccessToken>('/ThongTinNguoiDung')
 }
 
 //  login : (data: LoginSchemaType) => api.post<ApiResponse<UserLogin>>('/DangNhap', data)

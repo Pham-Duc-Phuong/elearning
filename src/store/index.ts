@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { rootReducer } from "./rootReducer";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { GetUserByAccessTokenThunk } from "./quanLyNguoiDung";
 
 export const store  = configureStore({
     reducer: rootReducer
 })
+
+store.dispatch(GetUserByAccessTokenThunk())
 
 // UseState in TypeScript
 export type RootState = ReturnType<typeof store.getState>

@@ -1,15 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { UserLogin } from 'types'
-import { loginThunk } from '.'
+import { GetUserByAccessToken, UserLogin } from 'types'
+import { GetUserByAccessTokenThunk, loginThunk } from '.'
+import { getAccessToken } from 'utils/getAccessToken'
 
 type quanLyNguoiDungInitialState = {
     accessToken?: string
-    UserLogin?: UserLogin
+    UserLogin?: UserLogin | GetUserByAccessToken
     isFetchLoading?: boolean
 }
 
 const initialState: quanLyNguoiDungInitialState = {
-    accessToken: localStorage.getItem('accessToken')
+    accessToken: getAccessToken()
 }
 
 export const quanLyNguoiDungSlice = createSlice({
@@ -21,6 +22,7 @@ export const quanLyNguoiDungSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(loginThunk.fulfilled, (state, { payload }) => {
+                console.log('payload', payload)
                 localStorage.setItem('accessToken', payload.accessToken)
                 state.isFetchLoading = false
                 state.UserLogin = payload
@@ -28,6 +30,9 @@ export const quanLyNguoiDungSlice = createSlice({
             })
             .addCase(loginThunk.pending, (state) => {
                 state.isFetchLoading = true
+            })
+            .addCase(GetUserByAccessTokenThunk.fulfilled, (state, {payload}) => {
+                state.UserLogin = payload
             })
     },
 })
