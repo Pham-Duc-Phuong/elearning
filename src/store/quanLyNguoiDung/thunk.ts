@@ -8,10 +8,19 @@ export const loginThunk = createAsyncThunk(
         try {
             const data = await quanLyNguoiDungService.login(payload)
             await sleep()
-            return data.data.content
-        } catch(err) {
+            return data.data
+        } catch (err) {
             return rejectWithValue(err)
         }
-}
-
+    })
+export const GetUserByAccessTokenThunk = createAsyncThunk(
+    'GetUserByAccessToken',
+    async (_, { rejectWithValue }) => {
+        try {
+            const data = await quanLyNguoiDungService.getUserByAccessToken()
+            return data.data
+        } catch (err) {
+            return rejectWithValue(err)
+        }
+    }
 )

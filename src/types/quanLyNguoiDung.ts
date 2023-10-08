@@ -7,4 +7,7 @@ export type UserLogin = {
     maLoaiNguoiDung: string
     accessToken: string
 }
-// export type GetUserByAccessToken = Omit()
+export type GetUserByAccessToken = Omit<UserLogin, 'accessToken'> & {
+    matKhau: string
+    chiTietKhoaHocGhiDanh:[]
+}

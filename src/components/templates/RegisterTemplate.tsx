@@ -5,8 +5,11 @@ import { RegisterSchema, RegisterSchemaType } from "schema"
 import { quanLyNguoiDungService } from "services"
 import { toast } from "react-toastify"
 import { handleError } from "utils/handleError"
+import { useNavigate } from "react-router-dom"
+import { PATH } from "constant"
 
 export const RegisterTemplate = () => {
+  const navigate = useNavigate()
   const { handleSubmit, register, formState: { errors } } = useForm<RegisterSchemaType>({
     mode: "onChange",
     resolver: zodResolver(RegisterSchema)
@@ -15,6 +18,7 @@ export const RegisterTemplate = () => {
     try {
       await quanLyNguoiDungService.register(values)
       toast.success('Đăng ký thành công')
+      navigate(PATH.login)
     } catch (err) {
       handleError (err)
     }
@@ -26,7 +30,7 @@ export const RegisterTemplate = () => {
       <Input className="input" label="Mật khẩu" placeholder="Mật khẩu" id="matKhau" error={errors?.matKhau?.message} register={register} />
       <Input className="input" label="Họ tên" placeholder="Họ tên" id="hoTen" error={errors?.hoTen?.message} register={register} />
       <Input className="input" label="Số điện thoại" placeholder="Số điện thoại" id="soDT" error={errors?.soDT?.message} register={register} />
-      <Input className="input" label="Mã nhóm" placeholder="Mã nhóm" id="maNhom" error={errors?.maNhom?.message} register={register} />
+      <Input className="input" label="Mã nhóm" placeholder="Mã nhóm ( GP01, GP02, ..., GP13)" id="maNhom" error={errors?.maNhom?.message} register={register} />
       <Input className="input" label="Email" placeholder="Email" id="email" error={errors?.email?.message} register={register} />
       <Button htmlType="submit" className="btn-register">Đăng ký</Button>
     </form>
