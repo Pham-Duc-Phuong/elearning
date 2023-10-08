@@ -1,4 +1,6 @@
 export const PATH = {
     register: '/register',
-    login: '/login'
+    login: '/login',
+    account: '/account',
+    admin: '/admin',
 }
