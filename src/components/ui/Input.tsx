@@ -21,7 +21,7 @@ export const Input = ({
 }: InputProps) => {
     return (
         <div className="mb-6 h-[70px]">
-            <label htmlFor={id} className="label">{label}</label>
+            {!!label && <label htmlFor={id} className="label">{label}</label>}
             <input type={type} id="taiKhoan" className={className} placeholder={placeholder} {...register?.(id)} />
             {!!error && <p className="text-red-600 text-right py-[5px]">{error}</p>}
         </div>

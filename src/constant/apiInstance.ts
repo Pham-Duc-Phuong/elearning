@@ -8,7 +8,7 @@ export const apiInstance = (config?: CreateAxiosDefaults) => {
         return {
             ...config,
             headers: {
-                TokenCybersoft
+                TokenCybersoft,
             } as unknown as AxiosRequestHeaders,
         }
 
