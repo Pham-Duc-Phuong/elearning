@@ -3,3 +3,6 @@ các mục đã làm
 - local:3000
 - làm gọn import bằng @type/node
 - cài tailwind.css
+- hoàn thành login vs register
+- hoàn thành đổi mật khẩu và update thông tin
+- xong header và footer
