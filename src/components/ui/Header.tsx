@@ -42,9 +42,9 @@ export const Header = () => {
                                 <Popover
                                     className="!bg-blue-700"
                                     content={
-                                        <div className="drop-down-header" id="user-dropdown">
+                                        <div id="user-dropdown">
                                             <div className="px-4 py-3">
-                                                <span className="block text-sm text-gray-900 mb-[10px] font-[500]">{UserLogin?.hoTen}</span>
+                                                <span className="block text-[18px] text-gray-900 mb-[10px] font-[500]">{UserLogin?.hoTen}</span>
                                                 <span className="block text-sm  text-gray-500 truncate font-[500]">{UserLogin?.email}</span>
                                             </div>
                                             <ul className="py-2">
@@ -71,7 +71,7 @@ export const Header = () => {
                         <button id="theme-toggle" type="button" className="btn-darkMode" onClick={() => {
                             darkMode()
                         }}>
-                            <i id="icon-dark-mode" className="fa-regular fa-moon text-[20px]"></i>
+                            <i id="icon-dark-mode" className="fa-regular fa-sun text-[20px]"></i>
                         </button>
                         <button id="btn-menu" type="button" className="btn-menu" onClick={() => {
                             dropDown()
