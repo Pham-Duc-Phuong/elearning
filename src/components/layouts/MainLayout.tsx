@@ -5,7 +5,7 @@ export const MainLayout = () => {
     return (
         <div className="dark:bg-[#111827]">
             <Header />
-            <div className="max-w-screen-2xl m-auto p-[40px]">
+            <div className="max-w-screen-2xl m-auto p-[40px] py-[100px]">
                 <Outlet />
             </div>
             <Footer />

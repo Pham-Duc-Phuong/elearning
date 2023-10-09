@@ -1,6 +1,6 @@
-import { AuthLayout, HomeTemplate, MainLayout } from "components"
+import { AuthLayout, MainLayout } from "components"
 import { PATH } from "constant"
-import { Admin, Login, Register } from "pages"
+import { Admin, Home, Login, Register } from "pages"
 import { Account } from "pages"
 import { RouteObject } from "react-router-dom"
 
@@ -12,8 +12,8 @@ export const router: RouteObject[] = [
         element: <MainLayout />,
         children: [
             {
-                path: PATH.home,
-                element: <HomeTemplate />
+                index: true,
+                element: <Home />
             },
             {
                 path: PATH.account,

@@ -10,7 +10,8 @@ type InputProps = {
     register?: UseFormRegister<any>
     placeholder?: string
     error?: string
-    hidden?:boolean
+    hidden?: boolean
+    colorLabel?: string
 }
 export const Input = ({
     id,
@@ -21,12 +22,13 @@ export const Input = ({
     placeholder,
     error,
     hidden = false,
+    colorLabel,
 }: InputProps) => {
     return (
         <div className={cn("mb-6 h-[70px]", {
             'hidden': hidden === true
         })}>
-            {!!label && <label htmlFor={id} className={cn("label",{'text-black': 'bg-white'})}>{label}</label>}
+            {!!label && <label htmlFor={id} className={cn("label",{'text-black': colorLabel === 'black'})}>{label}</label>}
             <input type={type} id={id} className={className} placeholder={placeholder} hidden={hidden} {...register?.(id)} />
             {!!error && <p className="text-red-600 text-right py-[5px]">{error}</p>}
         </div>

@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Input } from "components"
+import { PATH } from "constant"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
@@ -12,18 +13,18 @@ export const LoginTemplate = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const { handleSubmit, register, formState: { errors } } = useForm<LoginSchemaType>({
-        mode:"onChange",
+        mode: "onChange",
         resolver: zodResolver(LoginSchema)
     })
-    const {isFetchLoading} = useAppSelector(state => state.quanLyNguoiDung)
-    const setSubmit:SubmitHandler<LoginSchemaType> = (values) => {
-       dispatch(loginThunk(values)).unwrap().then(() => {
-        navigate ('/')
-        toast.success('CycberSoft xin chào bạn')
-       })
-       .catch ((err)=> {
-            handleError(err,'Tài khoản hoặc mật khẩu không đúng')
-       })
+    const { isFetchLoading } = useAppSelector(state => state.quanLyNguoiDung)
+    const setSubmit: SubmitHandler<LoginSchemaType> = (values) => {
+        dispatch(loginThunk(values)).unwrap().then(() => {
+            navigate('/')
+            toast.success('CycberSoft xin chào bạn')
+        })
+            .catch((err) => {
+                handleError(err, 'Tài khoản hoặc mật khẩu không đúng')
+            })
     }
     return (
         <form onSubmit={handleSubmit(setSubmit)}>
@@ -31,6 +32,13 @@ export const LoginTemplate = () => {
             <Input className="input" label="Tài khoản" placeholder="Tài khoản" id="taiKhoan" error={errors?.taiKhoan?.message} register={register} />
             <Input className="input" label="Mật khẩu" placeholder="Mật khẩu" id="matKhau" error={errors?.matKhau?.message} register={register} />
             <Button htmlType="submit" className="btn-register" loading={isFetchLoading}>Đăng nhập</Button>
+            <div className="flex justify-center">
+                <span className="text-white mr-[15px] cursor-pointer" onClick={() => {
+                    toast.info('Chức năng đang cập nhật')
+                }}>Quên mật khẩu?</span>
+                <span className="text-white">|</span>
+                <span className="text-white ml-[15px] cursor-pointer" onClick={() => {navigate(PATH.register)}}>Đăng ký</span>
+            </div>
         </form>
     )
 }
