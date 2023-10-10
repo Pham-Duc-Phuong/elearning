@@ -68,10 +68,10 @@ export const Header = () => {
                                 </Popover>
                             )
                         }
-                        <button id="theme-toggle" type="button" className="btn-darkMode" onClick={() => {
+                        <button id="theme-toggle" type="button" className="btn-darkMode flex items-center justify-center" onClick={() => {
                             darkMode()
                         }}>
-                            <i id="icon-dark-mode" className="fa-regular fa-sun text-[20px]"></i>
+                            <i id="icon-dark-mode" className="fa-regular fa-sun text-[20px] leading-[0px]"></i>
                         </button>
                         <button id="btn-menu" type="button" className="btn-menu" onClick={() => {
                             dropDown()
