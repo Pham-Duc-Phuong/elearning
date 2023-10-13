@@ -9,7 +9,8 @@ import { toast } from 'react-toastify'
 export const DetailKhoaHocTemplate = () => {
     const { KhoaHocList } = useAppSelector(state => state.quanLyKhoaHoc)
     const params = useParams()
-    const detailKhoaHoc = KhoaHocList?.find(a => a.maKhoaHoc == params.idKhoaHoc)
+    const detailKhoaHoc = KhoaHocList?.find(a => a.maKhoaHoc === params.idKhoaHoc)
+    const maDanhMucKhoaHocList = KhoaHocList?.filter((b => b.danhMucKhoaHoc?.maDanhMucKhoahoc === detailKhoaHoc?.danhMucKhoaHoc?.maDanhMucKhoahoc && b.maKhoaHoc !== params.idKhoaHoc))
     const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(layDanhSachKhoaHocThunk())
@@ -19,7 +20,7 @@ export const DetailKhoaHocTemplate = () => {
         <div className='bg-#170f23'>
             <div className="row detailShow">
                 <div className="col-8">
-                    <h5 className="text-36 font-bold text-gray-900 dark:text-white text-2xl mb-5">{detailKhoaHoc.danhMucKhoaHoc.tenDanhMucKhoaHoc}</h5>
+                    <h5 className="text-36 font-bold text-gray-900 dark:text-white text-2xl mb-5">{detailKhoaHoc?.danhMucKhoaHoc.tenDanhMucKhoaHoc}</h5>
                     <img className="object-cover rounded-lg h-[250px] mb-4" src={detailKhoaHoc?.hinhAnh} alt='' />
                     <div className=" leading-normal">
                         <div className="relative overflow-x-auto ">
@@ -32,7 +33,7 @@ export const DetailKhoaHocTemplate = () => {
                                             Tên Khoá học
                                         </th>
                                         <td className="px-6 py-3">
-                                            {detailKhoaHoc.tenKhoaHoc}
+                                            {detailKhoaHoc?.tenKhoaHoc}
                                         </td>
                                     </tr>
                                     <tr className="bg-white dark:bg-gray-800">
@@ -40,7 +41,7 @@ export const DetailKhoaHocTemplate = () => {
                                             Tổng quan về khoá học
                                         </th>
                                         <td className="px-6 py-3">
-                                            {detailKhoaHoc.moTa}
+                                            {detailKhoaHoc?.moTa}
                                         </td>
                                     </tr>
                                     <tr className="bg-white dark:bg-gray-800">
@@ -48,7 +49,7 @@ export const DetailKhoaHocTemplate = () => {
                                             Số lượng học viên
                                         </th>
                                         <td className="px-6 py-3">
-                                            {detailKhoaHoc.soLuongHocVien}
+                                            {detailKhoaHoc?.soLuongHocVien}
                                         </td>
                                     </tr>
                                     <tr className="bg-white dark:bg-gray-800">
@@ -56,7 +57,7 @@ export const DetailKhoaHocTemplate = () => {
                                             Lượt xem
                                         </th>
                                         <td className="px-6 py-3">
-                                            {detailKhoaHoc.luotXem}
+                                            {detailKhoaHoc?.luotXem}
                                         </td>
                                     </tr>
                                     <tr className="bg-white dark:bg-gray-800">
@@ -64,7 +65,7 @@ export const DetailKhoaHocTemplate = () => {
                                             Ngày tạo
                                         </th>
                                         <td className="px-6 py-3">
-                                            {detailKhoaHoc.ngayTao}
+                                            {detailKhoaHoc?.ngayTao}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -91,10 +92,10 @@ export const DetailKhoaHocTemplate = () => {
                     </div>
                 </div>
             </div>
-            <h1 className="text-gray-500 dark:text-gray-400 mb-10">DANH SÁCH KHOÁ HỌC</h1>
+            <h1 className="text-gray-600 font-[700] dark:text-gray-300 mb-10">DANH SÁCH KHOÁ HỌC LIÊN QUAN {detailKhoaHoc?.danhMucKhoaHoc.tenDanhMucKhoaHoc.toUpperCase()}</h1>
             <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 md:grid-cols-4 sm:grid-cols-2 phone:grid-cols-1 gap-[20px]">
                 {
-                    KhoaHocList?.map((a, index) => (
+                    maDanhMucKhoaHocList?.map((a, index) => (
                         <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between mb-24">
                             <a href="#">
                                 <img className="rounded-t-lg" src={a.hinhAnh} alt={a.biDanh}
