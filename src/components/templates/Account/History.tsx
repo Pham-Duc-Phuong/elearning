@@ -22,16 +22,16 @@ export const History = () => {
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-[10px] text-gray-700 uppercase bg-gray-50 md:text-[16px] sm:text-[14px] dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-[10px] py-3">
                 Hình ảnh
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-[10px] py-3">
                 khóa học
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-[10px] py-3">
                 Thời gian đăng ký
               </th>
-              <th className="px-6 py-3">
+              <th className="px-[10px] py-3">
                 <i className="fa-regular fa-trash-can text-16 text-red-600"></i>
               </th>
             </tr>
@@ -40,16 +40,16 @@ export const History = () => {
             {
               UserGetThongTinKhoaHoc?.chiTietKhoaHocGhiDanh?.map((a, index) => (
                 <tr key={index} className="bg-white border-b text-[10px] md:text-[16px] sm:text-[14px] dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <th scope="row" className="font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <img className="w-[300px]" src={a.hinhAnh} alt="" />
                   </th>
-                  <td className="px-6 py-4">
+                  <td className="px-[10px] py-4">
                     {a.tenKhoaHoc}
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-[10px] py-4">
                     <p>{new Date(a.ngayTao).getHours()}:{new Date(a.ngayTao).getMinutes()}</p><p>{new Date(a.ngayTao).getDate()}/{new Date(a.ngayTao).getMonth()}/{new Date(a.ngayTao).getFullYear()}</p>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-[10px] py-4">
                     <a href="#" onClick={() => {
                       const values: GhiDanhKhoaHoc = {
                         maKhoaHoc: a?.maKhoaHoc,

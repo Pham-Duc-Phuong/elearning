@@ -19,18 +19,17 @@ export const HomeTemplate = () => {
   const layKhoaHocTheoMuc = KhoaHocList?.filter(a => a.danhMucKhoaHoc.maDanhMucKhoahoc === activeTabs)
   return (
     <div>
-      <div id="default-carousel" className="relative w-full" data-carousel="slide">
+      <div id="default-carousel" className="relative w-full">
         {/* Carousel wrapper */}
-        <div className="relative overflow-hidden rounded-lg xl:h-[700px] lg:h-[600px] md:h-[400px] sm:h-[300px] phone:h-[150px]">
+        <div className="relative overflow-hidden rounded-lg xl:h-[600px] lg:h-[450px] md:h-[400px] sm:h-[300px] phone:h-[160px]">
           <div className="duration-700 ease-in-out" data-carousel-item>
             <img src="./images/Designer.png" className="absolute block w-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
           </div>
         </div>
-       
       </div>
       <div className="mt-[30px]">
         <div>
-          <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 border-b pb-[15px]">
+          <ul className="md:flex md:flex-wrap phone:grid sm:grid-cols-3 phone:grid-cols-2 sm:text-sm phone:text-[11px] font-medium text-center text-gray-500 dark:text-gray-400 border-b pb-[15px]">
             {
               DanhMucKhoaHoc?.map((a, index) => (
                 <li key={index} className="mr-2">
@@ -42,7 +41,7 @@ export const HomeTemplate = () => {
         </div>
         {
           DanhMucKhoaHoc?.map((a, index) => (
-            <div key={index} className={activeTabs === `${a.maDanhMuc}` ? 'block mt-[20px]' : 'hidden'}>
+            <div key={index} className={activeTabs === `${a.maDanhMuc}` ? 'block mt-[30px]' : 'hidden'}>
               <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 phone:grid-cols-1 gap-[50px]">
                 {
                   layKhoaHocTheoMuc?.map((a, index) => (
