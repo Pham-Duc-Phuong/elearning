@@ -19,3 +19,12 @@ export type layDanhSachKhoaHoc = {
         tenDanhMucKhoaHoc: string
     }
 }
+
+export type GhiDanhKhoaHoc = {
+    maKhoaHoc: string
+    taiKhoan: string
+}
+export type LayDanhMucKhoaHoc = {
+    maDanhMuc: string
+    tenDanhMuc: string
+}

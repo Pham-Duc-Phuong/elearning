@@ -1,6 +1,6 @@
 import { AuthLayout, MainLayout } from "components"
 import { PATH } from "constant"
-import { Admin, Home, Login, Register, DetailKhoaHoc } from "pages"
+import { Admin, Login, Register, DetailKhoaHoc, Course, Home } from "pages"
 import { Account } from "pages"
 import { RouteObject } from "react-router-dom"
 
@@ -14,6 +14,10 @@ export const router: RouteObject[] = [
             {
                 index: true,
                 element: <Home />
+            },
+            {
+                path: PATH.course,
+                element: <Course />
             },
             {
                 path: PATH.account,

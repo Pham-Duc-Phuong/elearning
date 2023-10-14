@@ -9,6 +9,15 @@ export type UserLogin = {
 }
 export type GetUserByAccessToken = Omit<UserLogin, 'accessToken'> & {
     matKhau: string
-    chiTietKhoaHocGhiDanh:[]
+    chiTietKhoaHocGhiDanh: {
+        biDanh: string
+        danhGia: number
+        hinhAnh: string
+        luotXem: number
+        maKhoaHoc: string
+        moTa: string
+        ngayTao: string
+        tenKhoaHoc: string
+    }[]
 }
 export type UpdateUser = Omit<GetUserByAccessToken, 'chiTietKhoaHocGhiDanh'>

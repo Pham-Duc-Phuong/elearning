@@ -7,6 +7,7 @@ type quanLyNguoiDungInitialState = {
     accessToken?: string
     UserLogin?: UserLogin | UpdateUser | GetUserByAccessToken
     UserUpdate?: UpdateUser
+    UserGetThongTinKhoaHoc?: GetUserByAccessToken
     isFetchLoading?: boolean
 }
 
@@ -36,9 +37,13 @@ export const quanLyNguoiDungSlice = createSlice({
             .addCase(loginThunk.pending, (state) => {
                 state.isFetchLoading = true
             })
+            .addCase(loginThunk.rejected, (state) => {
+                state.isFetchLoading = false
+            })
             .addCase(GetUserByAccessTokenThunk.fulfilled, (state, { payload }) => {
                 state.UserLogin = payload
                 state.UserUpdate = payload
+                state.UserGetThongTinKhoaHoc = payload
             })
             .addCase(UpdateUserThunk.fulfilled, (state, { payload }) => {
                 state.UserLogin = payload

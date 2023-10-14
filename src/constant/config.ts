@@ -4,5 +4,6 @@ export const PATH = {
     account: '/account',
     admin: '/admin',
     home: '/home',
+    course: '/course',
     DetailKhoaHoc : '/detail/:idKhoaHoc',
 }

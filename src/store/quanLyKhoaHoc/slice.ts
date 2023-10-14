@@ -1,21 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { layDanhSachKhoaHocThunk } from "."
-import { layDanhSachKhoaHoc } from "types"
+import { layDanhMucKhoaHocThunk, layDanhSachKhoaHocThunk } from "."
+import { LayDanhMucKhoaHoc, layDanhSachKhoaHoc } from "types"
 
 type quanLyKhoaHocInitialState = {
-    KhoaHocList: layDanhSachKhoaHoc[]
+    KhoaHocList?: layDanhSachKhoaHoc[]
+    DanhMucKhoaHoc?: LayDanhMucKhoaHoc[]
 }
-const initialState:quanLyKhoaHocInitialState = {
-    KhoaHocList: []
+const initialState: quanLyKhoaHocInitialState = {
 }
 const quanLyKhoaHocSlice = createSlice({
     name: 'quanLyKhoaHoc',
     initialState,
     reducers: {},
     extraReducers(builder) {
-        builder.addCase(layDanhSachKhoaHocThunk.fulfilled, (state, {payload}) => {
-           state.KhoaHocList = payload
+        builder.addCase(layDanhSachKhoaHocThunk.fulfilled, (state, { payload }) => {
+            state.KhoaHocList = payload
+        })
+        builder.addCase(layDanhMucKhoaHocThunk.fulfilled, (state, { payload }) => {
+            state.DanhMucKhoaHoc = payload
         })
     },
 })
-export const {actions: quanLyKhoaHocAction, reducer: quanLyKhoaHocReducer} = quanLyKhoaHocSlice
+export const { actions: quanLyKhoaHocAction, reducer: quanLyKhoaHocReducer } = quanLyKhoaHocSlice

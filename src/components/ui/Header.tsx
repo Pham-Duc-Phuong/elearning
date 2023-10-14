@@ -33,9 +33,9 @@ export const Header = () => {
                     <div className="flex items-center md:order-2">
                         {
                             !accessToken && <div>
-                                <span className="mr-[10px] cursor-pointer font-[500] a-header-1 inline-block" onClick={() => { navigate(PATH.login) }}>Đăng nhập</span>
-                                <span className="a-header-1 inline-block">|</span>
-                                <span className="ml-[10px] cursor-pointer font-[500] a-header-1 inline-block" onClick={() => { navigate(PATH.register) }}>Đăng ký</span></div>
+                                <span className="mr-[10px] cursor-pointer font-[500] a-header-1 inline-block dark:text-white" onClick={() => { navigate(PATH.login) }}>Đăng nhập</span>
+                                <span className="a-header-1 inline-block dark:text-white">|</span>
+                                <span className="ml-[10px] cursor-pointer font-[500] a-header-1 inline-block dark:text-white" onClick={() => { navigate(PATH.register) }}>Đăng ký</span></div>
                         }
                         {
                             !!accessToken && (
@@ -87,18 +87,20 @@ export const Header = () => {
                     <div className={cn("items-center justify-between md:block phone:hidden w-full md:w-auto md:order-1")} id="navbar-user">
                         <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
-                                <a href="#" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" onClick={() => {
+                                <p className="p-header" onClick={() => {
                                     navigate('/')
-                                }}>Trang chủ</a>
+                                }}>Trang chủ</p>
                             </li>
                             <li>
-                                <a href="#" className="a-header-1">Khóa học</a>
+                                <p className="p-header"onClick={() => {
+                                    navigate(PATH.course)
+                                }}>Khóa học</p>
                             </li>
                             <li>
-                                <a href="#" className="a-header-1">Tin tức</a>
+                                <p className="p-header">Tin tức</p>
                             </li>
                             <li>
-                                <a href="#" className="a-header-1">Liên hệ</a>
+                                <p className="p-header">Liên hệ</p>
                             </li>
                         </ul>
                     </div>
