@@ -12,6 +12,8 @@ type InputProps = {
     error?: string
     hidden?: boolean
     colorLabel?: string
+    value?: number
+    defaultValue?:number
 }
 export const Input = ({
     id,
@@ -23,14 +25,16 @@ export const Input = ({
     error,
     hidden = false,
     colorLabel,
+    value,
+    defaultValue,
 }: InputProps) => {
     return (
-        <div className={cn("mb-6 h-[70px]", {
+        <div className={cn("mb-6 sm:h-[60px] h-[50px]", {
             'hidden': hidden === true
         })}>
-            {!!label && <label htmlFor={id} className={cn("label",{'text-black': colorLabel === 'black'})}>{label}</label>}
-            <input type={type} id={id} className={className} placeholder={placeholder} hidden={hidden} {...register?.(id)} />
-            {!!error && <p className="text-red-600 text-right py-[5px]">{error}</p>}
+            {!!label && <label htmlFor={id} className={cn("label",{'text-black': colorLabel === 'black', 'text-white': colorLabel === 'white'})}>{label}</label>}
+            <input value={value} type={type} id={id} className={className} placeholder={placeholder} hidden={hidden} {...register?.(id)} defaultValue={defaultValue} />
+            {!!error && <p className="text-red-600 text-right py-[5px] text-[11px] sm:text-[16px]">{error}</p>}
         </div>
     )
 }

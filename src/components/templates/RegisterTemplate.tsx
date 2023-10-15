@@ -25,7 +25,7 @@ export const RegisterTemplate = () => {
   }
   return (
     <form noValidate action="" onSubmit={handleSubmit(setSubmit)}>
-      <h1 className="title ">Đăng ký tài khoản</h1>
+      <h1 className="title">Đăng ký tài khoản</h1>
       <Input className="input" label="Tài khoản" placeholder="Tài khoản" id="taiKhoan" error={errors?.taiKhoan?.message} register={register} />
       <Input className="input" label="Mật khẩu" placeholder="Mật khẩu" id="matKhau" error={errors?.matKhau?.message} register={register} />
       <Input className="input" label="Họ tên" placeholder="Họ tên" id="hoTen" error={errors?.hoTen?.message} register={register} />

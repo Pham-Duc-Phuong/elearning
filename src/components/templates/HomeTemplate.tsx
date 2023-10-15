@@ -16,16 +16,80 @@ export const HomeTemplate = () => {
   const ActiveTabs = (index) => {
     setActiveTabs(index)
   }
+  const [activeCarousel, setActiveCarousel] = useState(1)
+  const ActiveCarousel = (index) => {
+    setActiveCarousel(index)
+  }
+  useEffect(() => {
+    if(activeCarousel === 6) {
+      setActiveCarousel(1)
+    } else {
+      const intervalId = setInterval(() => {
+        setActiveCarousel(prevState => prevState + 1);
+      }, 2000); // chờ 2 giây trước khi tăng
+  
+      // Khúc này bị rò rỉ bộ nhớ (xem ở buổi 34) cần phải dọn dẹp khi component unmount
+      return () => clearInterval(intervalId);
+    }
+  },[activeCarousel])
   const layKhoaHocTheoMuc = KhoaHocList?.filter(a => a.danhMucKhoaHoc.maDanhMucKhoahoc === activeTabs)
   return (
     <div>
       <div id="default-carousel" className="relative w-full">
         {/* Carousel wrapper */}
-        <div className="relative overflow-hidden rounded-lg xl:h-[600px] lg:h-[450px] md:h-[400px] sm:h-[300px] phone:h-[160px]">
-          <div className="duration-700 ease-in-out" data-carousel-item>
-            <img src="./images/Designer.png" className="absolute block w-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+        <div className="relative overflow-hidden flex rounded-lg xl:h-[600px] lg:h-[450px] md:h-[400px] sm:h-[300px] phone:h-[150px]">
+          {/* Item 1 */}
+          <div className="">
+            <img src="/images/Designer.png" className={activeCarousel === 1 ? 'img-Carousel' : `hidden`} alt="..." />
+          </div>
+          {/* Item 2 */}
+          <div className="">
+            <img src="/images/Designer6.png" className={activeCarousel === 2 ? 'img-Carousel' : `hidden`} alt="..." />
+          </div>
+          {/* Item 3 */}
+          <div className="">
+            <img src="/images/Designer3.png" className={activeCarousel === 3 ? 'img-Carousel' : `hidden`} alt="..." />
+          </div>
+          {/* Item 4 */}
+          <div className="">
+            <img src="/images/Designer4.png" className={activeCarousel === 4 ? 'img-Carousel' : `hidden`} alt="..." />
+          </div>
+          {/* Item 5 */}
+          <div className="">
+            <img src="/images/Designer5.png" className={activeCarousel === 5 ? 'img-Carousel' : `hidden`} alt="..." />
           </div>
         </div>
+        {/* Slider controls */}
+        <button type="button" className="1 btn-Carousel left-0" onClick={() => {
+          if (activeCarousel === 1) {
+            ActiveCarousel(5)
+          } else {
+            ActiveCarousel(activeCarousel - 1)
+          }
+        }}>
+          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg className="w-4 h-4 text-white dark:text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 1 1 5l4 4" />
+            </svg>
+            <span className="sr-only">Previous</span>
+          </span>
+        </button>
+        <button type="button" className="btn-Carousel right-0"
+          onClick={() => {
+            if (activeCarousel === 5) {
+              ActiveCarousel(1)
+            } else {
+              ActiveCarousel(activeCarousel + 1)
+            }
+          }}
+        >
+          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg className="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m1 9 4-4-4-4" />
+            </svg>
+            <span className="sr-only">Next</span>
+          </span>
+        </button>
       </div>
       <div className="mt-[30px]">
         <div>

@@ -54,6 +54,11 @@ export const Header = () => {
                                                     }}>Thông tin tài khoản</a>
                                                 </li>
                                                 <li>
+                                                    <a href="#" className="a-header font-[500]" onClick={() => {
+                                                        navigate(PATH.admin)
+                                                    }}>Quản lý</a>
+                                                </li>
+                                                <li>
                                                     <a href="#" className="a-header font-[500]" onClick={() => { dispatch(quanLyNguoiDungActions.logOut()) }}>Đăng xuất</a>
                                                 </li>
                                             </ul>

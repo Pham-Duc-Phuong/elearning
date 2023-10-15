@@ -7,16 +7,22 @@
       @apply text-3xl font-bold text-red-600 text-center hover:text-blue-700
   }
   .label {
-    @apply block mb-2 text-[15px] font-medium  text-white dark:text-white
+    @apply block mb-2 text-[13px] sm:text-[15px] font-medium text-white dark:text-white
   }
   .title {
-    @apply block mb-2 font-[700] text-white text-[35px] text-center
+    @apply block mb-2 font-[700] text-white text-[25px] sm:text-[35px] text-center
   }
   .btn-register{
-    @apply !text-white mt-[15px] !border-transparent !bg-gradient-to-r hover:!border-transparent !from-cyan-500 !to-blue-500 hover:!bg-gradient-to-bl hover:!text-white focus:!ring-4 focus:!outline-none focus:!ring-cyan-300 !font-medium !rounded-lg !text-[17px] !text-center !mr-2 !mb-2 !h-[40px] !w-full !tracking-widest
+    @apply !text-white mt-[15px] sm:mt-[25px] !border-transparent !bg-gradient-to-r hover:!border-transparent !from-cyan-500 !to-blue-500 hover:!bg-gradient-to-bl hover:!text-white focus:!ring-4 focus:!outline-none focus:!ring-cyan-300 !font-medium !rounded-lg !text-[14px]  sm:!text-[17px] !text-center !mr-2 !mb-2 !h-[35px] sm:!h-[40px] !w-full !tracking-widest
+  }
+  .btn-cancel{
+    @apply !text-white mt-[15px] !border-transparent !bg-gradient-to-r hover:!border-transparent !from-orange-400 !to-red-600 hover:!bg-gradient-to-bl hover:!text-white focus:!ring-4 focus:!outline-none focus:!ring-orange-300 !font-medium !rounded-lg !text-[14px]  sm:!text-[17px] !text-center !mr-2 !mb-2 !h-[35px] sm:!h-[40px] !w-full !tracking-widest
+  }
+  .btn-add{
+    @apply !text-white my-[15px] !border-transparent !bg-gradient-to-r hover:!border-transparent !from-blue-700 !to-purple-700 hover:!bg-gradient-to-bl hover:!text-white !font-medium !rounded-lg !text-[11px]  sm:!text-[17px] !text-center !mr-2 !h-[30px] sm:!h-[40px] !w-full !tracking-widest 
   }
   .input{
-    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-[8px] sm:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
   }
   /* header */
   .a-header{
@@ -47,5 +53,12 @@
   }
   .a-back{
     @apply inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800
+  }
+  /* Carousel */
+  .img-Carousel{
+    @apply absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2
+  }
+  .btn-Carousel{
+    @apply absolute top-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer focus:outline-none
   }
 }

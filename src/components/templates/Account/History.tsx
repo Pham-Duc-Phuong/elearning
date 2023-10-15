@@ -26,7 +26,7 @@ export const History = () => {
                 Hình ảnh
               </th>
               <th scope="col" className="px-[10px] py-3">
-                khóa học
+                Khóa học
               </th>
               <th scope="col" className="px-[10px] py-3">
                 Thời gian đăng ký
@@ -41,7 +41,7 @@ export const History = () => {
               UserGetThongTinKhoaHoc?.chiTietKhoaHocGhiDanh?.map((a, index) => (
                 <tr key={index} className="bg-white border-b text-[10px] md:text-[16px] sm:text-[14px] dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                   <th scope="row" className="font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <img className="w-[300px]" src={a.hinhAnh} alt="" />
+                    <img className="w-[200px]" src={a.hinhAnh} alt="" />
                   </th>
                   <td className="px-[10px] py-4">
                     {a.tenKhoaHoc}
@@ -58,7 +58,7 @@ export const History = () => {
                       setSubmit(values)
                       // dispatch(GetUserByAccessTokenThunk())
                       toast.success('Xóa thành công', { autoClose: 1000 })
-                    }}><i className="fa-regular fa-trash-can text-[10px] md:text-[16px] sm:text-[14px] text-red-200 cursor-pointer hover:text-red-600"></i></a>
+                    }}><i className="fa-regular fa-trash-can text-[10px] md:text-[16px] sm:text-[14px] cursor-pointer text-red-600"></i></a>
                   </td>
                 </tr>
               ))

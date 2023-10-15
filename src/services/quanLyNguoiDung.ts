@@ -11,7 +11,7 @@ export const quanLyNguoiDungService = {
     register: (data: RegisterSchemaType) => api.post('/DangKy', data),
     login: (data: LoginSchemaType) => api.post<UserLogin>('/DangNhap', data),
     getUserByAccessToken: () => api.post<GetUserByAccessToken>('/ThongTinNguoiDung'),
-    updateUser: (data: UpdateUser) => api.put<UpdateUser>('/CapNhatThongTinNguoiDung', data)
+    updateUser: (data: UpdateUser) => api.put('/CapNhatThongTinNguoiDung', data)
 }
 
 //  login : (data: LoginSchemaType) => api.post<ApiResponse<UserLogin>>('/DangNhap', data)

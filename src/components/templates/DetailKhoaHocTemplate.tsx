@@ -12,7 +12,7 @@ export const DetailKhoaHocTemplate = () => {
     const params = useParams()
     const detailKhoaHoc = KhoaHocList?.find(a => a.maKhoaHoc === params.idKhoaHoc)
     const maDanhMucKhoaHocList = KhoaHocList?.filter((b => b.danhMucKhoaHoc?.maDanhMucKhoahoc === detailKhoaHoc?.danhMucKhoaHoc?.maDanhMucKhoahoc && b.maKhoaHoc !== params.idKhoaHoc))
-    const { UserLogin } = useAppSelector(state => state.quanLyNguoiDung)
+    const { UserLogin, accessToken } = useAppSelector(state => state.quanLyNguoiDung)
     const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(layDanhSachKhoaHocThunk())
@@ -32,11 +32,15 @@ export const DetailKhoaHocTemplate = () => {
                     </div>
                     <div className="flex justify-between">
                         <a className="a-Card" onClick={() => {
-                            const values: GhiDanhKhoaHoc = {
-                                maKhoaHoc: detailKhoaHoc?.maKhoaHoc,
-                                taiKhoan: UserLogin?.taiKhoan
+                            if (!accessToken) {
+                                navigate(PATH.login)
+                            } else {
+                                const values: GhiDanhKhoaHoc = {
+                                    maKhoaHoc: detailKhoaHoc?.maKhoaHoc,
+                                    taiKhoan: UserLogin?.taiKhoan
+                                }
+                                setSubmit(values)
                             }
-                            setSubmit(values)
                         }}>Đăng ký học</a>
                         <a className="a-back"><i className="fa-solid fa-arrow-left mr-[10px]"></i>Quay lại</a>
                     </div>
