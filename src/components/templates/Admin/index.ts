@@ -1,2 +1,2 @@
 export * from './AdminTemplate'
-export * from './addCourse'
+export * from './AddCourse'
