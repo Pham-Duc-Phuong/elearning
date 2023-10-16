@@ -4,18 +4,39 @@ import { layDanhSachKhoaHocThunk } from "store/quanLyKhoaHoc"
 // import { Button } from 'components'
 import { generatePath, useNavigate } from 'react-router-dom'
 import { PATH } from 'constant'
+import { Card, Skeleton } from "antd"
 
 export const CourseTemplate = () => {
   const navigate = useNavigate()
   const { UserLogin } = useAppSelector(state => state.quanLyNguoiDung)
-  const { KhoaHocList } = useAppSelector(state => state.quanLyKhoaHoc)
+  const { KhoaHocList, isLoadingCourse } = useAppSelector(state => state.quanLyKhoaHoc)
 
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(layDanhSachKhoaHocThunk())
   }, [dispatch, UserLogin])
+  if (isLoadingCourse) {
+    return (
+      <div>
+        <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 phone:grid-cols-1 gap-[50px]">
+          {
+            [...Array(12)].map((_, index) => {
+              return (
+                <Card key={index} className="!w-full">
+                  <Skeleton.Image className="!w-full !h-[180px] dark:!bg-gray-200" />
+                  <Skeleton.Input className="!w-full mt-[5px] dark:!bg-gray-200" />
+                  <Skeleton.Input className="!w-full mt-[5px] dark:!bg-gray-200" />
+                  <Skeleton.Input className="!w-full mt-[5px] dark:!bg-gray-200" />
+                </Card>
+              )
+            })
+          }
+        </div>
+      </div>
+    )
+  }
   return (
-    <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 phone:grid-cols-1 gap-[50px]">
+    <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 phone:grid-cols-1 gap-[50px]">
       {
         KhoaHocList?.map((a, index) => (
           <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between">

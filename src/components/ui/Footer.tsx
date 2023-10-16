@@ -6,8 +6,8 @@ export const Footer = () => {
         <div className="mx-auto w-full max-w-screen-2xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
-              <a href="https://flowbite.com/" className="flex items-center">
-                <img src="./images/logo.jpg" className="h-[60px] mr-3 rounded-[50%]" alt="Logo" />
+              <a href="https://bc47-caption-elearning.vercel.app/" className="flex items-center">
+                <img src="/images/logo.jpg" className="h-[60px] mr-3 rounded-[50%]" alt="Logo" />
                 <span className="self-center text-[40px] font-semibold whitespace-nowrap tracking-[3px] dark:text-white">Elearning</span>
               </a>
             </div>

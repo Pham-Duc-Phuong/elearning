@@ -27,7 +27,7 @@ export const Header = () => {
             <nav className="bg-white border-gray-200 dark:bg-gray-900">
                 <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <a href={'/'} className="flex items-center">
-                        <img src="./images/logo.jpg" className="h-[45px] mr-3 rounded-[50%]" alt="Logo" />
+                        <img src="/images/logo.jpg" className="h-[45px] mr-3 rounded-[50%]" alt="Logo" />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap tracking-[2px] dark:text-white">Elearning</span>
                     </a>
                     <div className="flex items-center md:order-2">

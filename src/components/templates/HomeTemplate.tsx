@@ -1,3 +1,4 @@
+import { Card, Skeleton } from "antd"
 import { PATH } from "constant"
 import { useState, useEffect } from "react"
 import { generatePath, useNavigate } from "react-router-dom"
@@ -11,7 +12,7 @@ export const HomeTemplate = () => {
     dispatch(layDanhMucKhoaHocThunk())
     dispatch(layDanhSachKhoaHocThunk())
   }, [dispatch])
-  const { DanhMucKhoaHoc, KhoaHocList } = useAppSelector(state => state.quanLyKhoaHoc)
+  const { DanhMucKhoaHoc, KhoaHocList, isLoadingCourse } = useAppSelector(state => state.quanLyKhoaHoc)
   const [activeTabs, setActiveTabs] = useState('BackEnd')
   const ActiveTabs = (index) => {
     setActiveTabs(index)
@@ -21,18 +22,53 @@ export const HomeTemplate = () => {
     setActiveCarousel(index)
   }
   useEffect(() => {
-    if(activeCarousel === 6) {
+    if (activeCarousel === 6) {
       setActiveCarousel(1)
     } else {
       const intervalId = setInterval(() => {
         setActiveCarousel(prevState => prevState + 1);
-      }, 2000); // chờ 2 giây trước khi tăng
-  
-      // Khúc này bị rò rỉ bộ nhớ (xem ở buổi 34) cần phải dọn dẹp khi component unmount
+      }, 3000); // chờ 2 giây trước khi tăng
+
+      // Khúc này bị rò rỉ bộ nhớ (xem ở buổi 43) cần phải dọn dẹp khi component unmount
       return () => clearInterval(intervalId);
     }
-  },[activeCarousel])
+  }, [activeCarousel])
   const layKhoaHocTheoMuc = KhoaHocList?.filter(a => a.danhMucKhoaHoc.maDanhMucKhoahoc === activeTabs)
+  if (isLoadingCourse) {
+    return (
+      <div>
+        <div className="shadow-md p-[5px] pb-[8px] border rounded-lg w-full xl:h-[600px] lg:h-[450px] md:h-[400px] sm:h-[300px] phone:h-[150px]">
+          <Skeleton.Input className="!w-full !h-full dark:!bg-gray-200 !rounded-md" />
+        </div>
+        <div className="md:flex md:flex-row phone:grid sm:grid-cols-3 phone:grid-cols-2 gap-[10px] mt-[32px]">
+          {
+            [...Array(6)].map((_, index) => {
+              return (
+                <div key={index}>
+                  <Skeleton.Button className=" px-[35px] py-[6px] rounded-lg dark:!bg-gray-200" />
+                </div>
+              )
+            })
+          }
+        </div>
+        <hr className="my-[15px]" />
+        <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 phone:grid-cols-1 gap-[50px] !mt-[30px]">
+          {
+            [...Array(8)].map((_, index) => {
+              return (
+                <Card key={index} className="!w-full">
+                  <Skeleton.Image className="!w-full !h-[180px] dark:!bg-gray-200" />
+                  <Skeleton.Input className="!w-full mt-[5px] dark:!bg-gray-200" />
+                  <Skeleton.Input className="!w-full mt-[5px] dark:!bg-gray-200" />
+                  <Skeleton.Input className="!w-full mt-[5px] dark:!bg-gray-200" />
+                </Card>
+              )
+            })
+          }
+        </div>
+      </div>
+    )
+  }
   return (
     <div>
       <div id="default-carousel" className="relative w-full">
@@ -106,7 +142,7 @@ export const HomeTemplate = () => {
         {
           DanhMucKhoaHoc?.map((a, index) => (
             <div key={index} className={activeTabs === `${a.maDanhMuc}` ? 'block mt-[30px]' : 'hidden'}>
-              <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 phone:grid-cols-1 gap-[50px]">
+              <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 phone:grid-cols-1 gap-[50px]">
                 {
                   layKhoaHocTheoMuc?.map((a, index) => (
                     <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between">

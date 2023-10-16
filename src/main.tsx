@@ -8,12 +8,11 @@ import { ToastContainer } from 'react-toastify'
 import { Provider } from 'react-redux'
 import { store } from 'store'
 import { ConfigProvider } from 'antd'
-import cn from 'classnames'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <ToastContainer />
-    <ConfigProvider theme={{ token: { padding: 0 } , components:{Modal:{contentBg: cn('#111827')}}}}>
+    <ConfigProvider theme={{ token: {colorBgContainer: 'transparent'} , components:{Modal:{contentBg:'#111827'}, Card:{actionsBg: "#000", padding: 0}}}}>
       <StyleProvider hashPriority="high">
         <Provider store={store}>
           <App />
