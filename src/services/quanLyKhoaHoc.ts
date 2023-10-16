@@ -11,4 +11,6 @@ export const quanLyKhoaHocService = {
     huyGhiDanh: (data: GhiDanhKhoaHoc) => api.post('/HuyGhiDanh', data),
     layDanhMucKhoaHoc: () => api.get<LayDanhMucKhoaHoc[]>('/LayDanhMucKhoaHoc'),
     themKhoaHoc: (data: AddCourseSchemaType) => api.post('/ThemKhoaHoc', data),
+    capNhatKhoaHoc: (data: AddCourseSchemaType) => api.put('/CapNhatKhoaHoc', data),
+    xoaKhoaHoc: (query: string) => api.delete(`/XoaKhoaHoc?MaKhoaHoc=${query}`),
 }

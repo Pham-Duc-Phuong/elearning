@@ -7,7 +7,7 @@ export const layDanhSachKhoaHocThunk = createAsyncThunk(
     'layDanhSachKhoaHoc',
     async (_, { rejectWithValue }) => {
         try {
-            const data = await quanLyKhoaHocService.laydanhsachkhoahoc("GP09")
+            const data = await quanLyKhoaHocService.laydanhsachkhoahoc("GP06")
             await sleep()
             return data.data
         } catch (err) {
@@ -39,12 +39,24 @@ export const huyGhiDanhThunk = createAsyncThunk(
 )
 export const layDanhMucKhoaHocThunk = createAsyncThunk(
     'LayDanhMucKhoaHoc',
-    async (_, {rejectWithValue}) => {
+    async (_, { rejectWithValue }) => {
         try {
             const data = await quanLyKhoaHocService.layDanhMucKhoaHoc()
             return data.data
         } catch (err) {
             return rejectWithValue(err)
+        }
+    }
+)
+export const xoaKhoaHocThunk = createAsyncThunk(
+    'xoaKhoaHoc',
+    async (payload: string, { rejectWithValue }) => {
+        console.log('payload', payload)
+        try {
+            const data = await quanLyKhoaHocService.xoaKhoaHoc(payload)
+            return data.data
+        } catch (error) {
+            return rejectWithValue(error)
         }
     }
 )

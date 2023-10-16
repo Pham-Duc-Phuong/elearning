@@ -6,13 +6,19 @@ type quanLyKhoaHocInitialState = {
     KhoaHocList?: layDanhSachKhoaHoc[]
     DanhMucKhoaHoc?: LayDanhMucKhoaHoc[]
     isLoadingCourse?: boolean
+    editKhoaHoc?: layDanhSachKhoaHoc
 }
 const initialState: quanLyKhoaHocInitialState = {
+    editKhoaHoc: undefined
 }
 const quanLyKhoaHocSlice = createSlice({
     name: 'quanLyKhoaHoc',
     initialState,
-    reducers: {},
+    reducers: {
+        timKhoaHoc: (state, {payload}) => {
+            state.editKhoaHoc = payload
+        }
+    },
     extraReducers(builder) {
         builder.addCase(layDanhSachKhoaHocThunk.fulfilled, (state, { payload }) => {
             state.KhoaHocList = payload

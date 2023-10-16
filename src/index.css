@@ -18,6 +18,9 @@
   .btn-cancel{
     @apply !text-white mt-[15px] !border-transparent !bg-gradient-to-r hover:!border-transparent !from-orange-400 !to-red-600 hover:!bg-gradient-to-bl hover:!text-white focus:!ring-4 focus:!outline-none focus:!ring-orange-300 !font-medium !rounded-lg !text-[14px]  sm:!text-[17px] !text-center !mr-2 !mb-2 !h-[35px] sm:!h-[40px] !w-full !tracking-widest
   }
+  .btn-reset{
+    @apply text-white border-transparent bg-gradient-to-r hover:border-transparent from-blue-700 to-purple-700 hover:bg-gradient-to-bl hover:text-white focus:ring-1 focus:outline-none focus:ring-orange-200 font-medium rounded-md text-[13px]  sm:text-[16px] text-center tracking-widest px-[10px]
+  }
   .btn-add{
     @apply !text-white my-[15px] !border-transparent !bg-gradient-to-r hover:!border-transparent !from-blue-700 !to-purple-700 hover:!bg-gradient-to-bl hover:!text-white !font-medium !rounded-lg !text-[11px]  sm:!text-[17px] !text-center !mr-2 !h-[30px] sm:!h-[40px] !w-full !tracking-widest 
   }
