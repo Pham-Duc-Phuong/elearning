@@ -7,7 +7,7 @@ export const layDanhSachKhoaHocThunk = createAsyncThunk(
     'layDanhSachKhoaHoc',
     async (_, { rejectWithValue }) => {
         try {
-            const data = await quanLyKhoaHocService.laydanhsachkhoahoc("GP06")
+            const data = await quanLyKhoaHocService.laydanhsachkhoahoc("GP09")
             await sleep()
             return data.data
         } catch (err) {
