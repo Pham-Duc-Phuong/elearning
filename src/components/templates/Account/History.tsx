@@ -20,7 +20,7 @@ export const History = () => {
     <div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-[15px]">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-[10px] text-gray-700 uppercase bg-gray-50 md:text-[16px] sm:text-[14px] dark:bg-gray-700 dark:text-gray-400">
+          <thead className="text-[10px] text-gray-700 bg-gray-50 md:text-[16px] sm:text-[14px] dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-[10px] py-3">
                 Hình ảnh
@@ -41,7 +41,7 @@ export const History = () => {
               UserGetThongTinKhoaHoc?.chiTietKhoaHocGhiDanh?.map((a, index) => (
                 <tr key={index} className="bg-white border-b text-[10px] md:text-[16px] sm:text-[14px] dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                   <th scope="row" className="font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <img className="w-[200px]" src={a.hinhAnh} alt="" />
+                    <img className="w-[140px]" src={a.hinhAnh} alt="" />
                   </th>
                   <td className="px-[10px] py-4">
                     {a.tenKhoaHoc}
