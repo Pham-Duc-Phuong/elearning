@@ -37,7 +37,8 @@ export const UpdateAccount = () => {
             dispatch(TimKiemNguoiDungThunk(chonMaNhom))
             toast.success('Cập nhật tài khoản thành công')
         } catch (error) {
-            toast.error('Cập nhật tài khoản thất bại')
+            console.log('error', error)
+            toast.error(error.response.data)
         }
     }
     return (

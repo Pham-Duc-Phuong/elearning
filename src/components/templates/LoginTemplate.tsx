@@ -7,7 +7,6 @@ import { toast } from "react-toastify"
 import { LoginSchema, LoginSchemaType } from "schema"
 import { useAppDispatch, useAppSelector } from "store"
 import { loginThunk } from "store/quanLyNguoiDung"
-import { handleError } from "utils"
 
 export const LoginTemplate = () => {
     const dispatch = useAppDispatch()
@@ -21,10 +20,9 @@ export const LoginTemplate = () => {
         dispatch(loginThunk(values)).unwrap().then(() => {
             navigate('/')
             toast.success('CycberSoft xin chào bạn')
+        }).catch((err) => {
+            toast.error(err.response.data)
         })
-            .catch((err) => {
-                handleError(err, 'Tài khoản hoặc mật khẩu không đúng')
-            })
     }
     return (
         <form onSubmit={handleSubmit(setSubmit)}>
@@ -37,7 +35,7 @@ export const LoginTemplate = () => {
                     toast.info('Chức năng đang cập nhật')
                 }}>Quên mật khẩu?</span>
                 <span className="text-white">|</span>
-                <span className="text-white ml-[15px] cursor-pointer" onClick={() => {navigate(PATH.register)}}>Đăng ký</span>
+                <span className="text-white ml-[15px] cursor-pointer" onClick={() => { navigate(PATH.register) }}>Đăng ký</span>
             </div>
         </form>
     )

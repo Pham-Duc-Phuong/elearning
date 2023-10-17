@@ -4,7 +4,6 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { RegisterSchema, RegisterSchemaType } from "schema"
 import { quanLyNguoiDungService } from "services"
 import { toast } from "react-toastify"
-import { handleError } from "utils/handleError"
 import { useNavigate } from "react-router-dom"
 import { PATH } from "constant"
 
@@ -20,7 +19,7 @@ export const RegisterTemplate = () => {
       toast.success('Đăng ký thành công')
       navigate(PATH.login)
     } catch (err) {
-      handleError (err)
+      toast.error(err.response.data)
     }
   }
   return (

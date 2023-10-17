@@ -31,7 +31,7 @@ export const DetailKhoaHocTemplate = () => {
                         <p className="mb-3 text-[18px] font-normal text-gray-700 dark:text-gray-400">{detailKhoaHoc?.moTa}</p>
                     </div>
                     <div className="flex justify-between">
-                        <a className="a-Card" onClick={() => {
+                        <p className="a-Card" onClick={() => {
                             if (!accessToken) {
                                 navigate(PATH.login)
                             } else {
@@ -41,8 +41,8 @@ export const DetailKhoaHocTemplate = () => {
                                 }
                                 setSubmit(values)
                             }
-                        }}>Đăng ký học</a>
-                        <a className="a-back"><i className="fa-solid fa-arrow-left mr-[10px]"></i>Quay lại</a>
+                        }}>Đăng ký học</p>
+                        <p className="a-back"><i className="fa-solid fa-arrow-left mr-[10px]" onClick={()=>{navigate(PATH.course)}}></i>Quay lại</p>
                     </div>
                 </div>
             </div>

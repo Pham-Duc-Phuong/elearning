@@ -26,7 +26,7 @@ export const AddAccount = () => {
             if (UserLogin?.maLoaiNguoiDung === "HV") {
                 toast.error('Mã người dùng không được phân quyền Admin')
             }
-            toast.error('Thêm tài khoản thất bại')
+            toast.error(error.response.data)
         }
     }
     return (

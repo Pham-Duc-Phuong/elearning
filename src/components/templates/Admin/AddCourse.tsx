@@ -42,11 +42,10 @@ export const AddCourse = () => {
       dispatch(layDanhSachKhoaHocThunk())
       toast.success('Thêm khóa học thành công')
     } catch (err) {
-      console.log('err', err)
       if(UserLogin?.maLoaiNguoiDung === "HV") {
         toast.error('HV không thể thêm khóa học')
       }
-      toast.error('Thêm khóa học thất bại')
+      toast.error(err.response.data)
     } 
     //dispatch(themKhoaHocThunk(valuesFixed)).unwrap().then(() => { toast.success('Thêm khóa học thành công') }).catch(() => { toast.error('Thêm khóa học thất bại')})
   }
