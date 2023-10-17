@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { AddAccount, AddCourse, UpdateAccount, UpdateCourse } from "."
 export const AdminTemplate = () => {
-  const [activeTabs, setActiveTabs] = useState(2)
-  const [openComponent, setOpenComponent] = useState(4)
+  const [activeTabs, setActiveTabs] = useState(1)
+  const [openComponent, setOpenComponent] = useState(2)
   return (
     <div>
       <div>
