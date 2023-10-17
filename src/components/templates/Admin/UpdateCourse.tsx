@@ -19,10 +19,12 @@ export const UpdateCourse = () => {
         resolver: zodResolver(AddCourseSchema)
     })
     const { KhoaHocList, editKhoaHoc } = useAppSelector(state => state.quanLyKhoaHoc)
+    const [searchCourse, setSearchCourse] = useState('')
     useEffect(() => {
         reset({ ...editKhoaHoc, maDanhMucKhoaHoc: editKhoaHoc?.danhMucKhoaHoc?.maDanhMucKhoahoc, taiKhoanNguoiTao: editKhoaHoc?.nguoiTao?.taiKhoan })
         dispatch(layDanhSachKhoaHocThunk())
     }, [reset, dispatch, editKhoaHoc])
+    const searchCourseList = KhoaHocList?.filter(a => a.tenKhoaHoc.toLowerCase().includes(searchCourse.toLowerCase()))
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
@@ -42,6 +44,13 @@ export const UpdateCourse = () => {
     const today = getToday
     return (
         <div className="my-[30px]">
+            <form className='my-[15px] w-full'>
+                <label htmlFor="search" className={cn("label", { "text-black": 'bg-white' })}>Tìm kiếm</label>
+                <div className='flex'>
+                    <input type="text" id='search' className='input w-full !rounded-r-none !rounded-l-lg' onChange={(e) => { setSearchCourse(e.target.value) }} />
+                    <button className='btn-reset !rounded-l-none !rounded-r-lg'><i className="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </form>
             <Modal footer={false} open={isModalOpen} onCancel={handleCancel} closeIcon={false}>
                 <form noValidate className="mt-[10px]" onSubmit={handleSubmit(setSubmit)}>
                     <div className="flex justify-end">
@@ -96,7 +105,7 @@ export const UpdateCourse = () => {
                 </thead>
                 <tbody>
                     {
-                        KhoaHocList?.map((a, index) => (
+                        (searchCourseList ? searchCourseList : KhoaHocList)?.map((a, index) => (
                             <tr key={index} className="bg-white border-b text-[10px] lg:text-[18px] md:text-[16px] sm:text-[14px] dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <th scope="row" className="font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <img className="w-[100px]" src={a.hinhAnh} alt="" />
@@ -111,7 +120,7 @@ export const UpdateCourse = () => {
                                 </td>
                                 <td className="px-[10px] py-4">
                                     <button onClick={() => {
-                                        dispatch(xoaKhoaHocThunk(a.maKhoaHoc)).unwrap().then(() => { toast.success('Xóa thành công') }).catch(() => { toast.error('Xóa thất bại') })
+                                        dispatch(xoaKhoaHocThunk(a.maKhoaHoc)).unwrap().then(() => { dispatch(layDanhSachKhoaHocThunk()), toast.success('Xóa thành công') }).catch((error) => { toast.error(error.response.data) })
                                     }}><i className="fa-regular fa-trash-can text-[10px] md:text-[16px] sm:text-[14px] cursor-pointer text-red-600"></i></button>
                                 </td>
                             </tr>

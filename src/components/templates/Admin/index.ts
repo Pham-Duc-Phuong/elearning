@@ -1,3 +1,5 @@
 export * from './AdminTemplate'
 export * from './AddCourse'
 export * from './UpdateCourse'
+export * from './AddAccount'
+export * from './UpdateAccount'

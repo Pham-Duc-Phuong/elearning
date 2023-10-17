@@ -1,14 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { GetUserByAccessToken, UpdateUser, UserLogin } from 'types'
-import { GetUserByAccessTokenThunk, UpdateUserThunk, loginThunk } from '.'
+import { GetUserByAccessTokenThunk, TimKiemNguoiDungThunk, UpdateUserThunk, loginThunk } from '.'
 import { getAccessToken } from 'utils/getAccessToken'
+import { ControlAccountSchemaType } from 'schema'
 
 type quanLyNguoiDungInitialState = {
     accessToken?: string
     UserLogin?: UserLogin | UpdateUser | GetUserByAccessToken
     UserUpdate?: UpdateUser
     UserGetThongTinKhoaHoc?: GetUserByAccessToken
+    danhSachNguoiDung?: ControlAccountSchemaType[]
     isFetchLoading?: boolean
+    controlAccount?: ControlAccountSchemaType
 }
 
 const initialState: quanLyNguoiDungInitialState = {
@@ -23,12 +26,14 @@ export const quanLyNguoiDungSlice = createSlice({
             localStorage.removeItem('accessToken')
             state.accessToken = undefined
             state.UserLogin = undefined
+        },
+        timNguoiDung: (state, { payload }) => {
+            state.controlAccount = payload
         }
     },
     extraReducers(builder) {
         builder
             .addCase(loginThunk.fulfilled, (state, { payload }) => {
-                console.log('payload', payload)
                 localStorage.setItem('accessToken', payload.accessToken)
                 state.isFetchLoading = false
                 state.UserLogin = payload
@@ -47,6 +52,9 @@ export const quanLyNguoiDungSlice = createSlice({
             })
             .addCase(UpdateUserThunk.fulfilled, (state, { payload }) => {
                 state.UserLogin = payload
+            })
+            .addCase(TimKiemNguoiDungThunk.fulfilled, (state, { payload }) => {
+                state.danhSachNguoiDung = payload
             })
     },
 })

@@ -27,12 +27,34 @@ export const GetUserByAccessTokenThunk = createAsyncThunk(
 )
 export const UpdateUserThunk = createAsyncThunk(
     'UpdateUser',
-    async (payload: UpdateUser, {rejectWithValue}) => {
+    async (payload: UpdateUser, { rejectWithValue }) => {
         try {
             const data = await quanLyNguoiDungService.updateUser(payload)
             return data.data
         } catch (err) {
             return rejectWithValue(err)
+        }
+    }
+)
+export const TimKiemNguoiDungThunk = createAsyncThunk(
+    'TimKiemNguoiDung',
+    async (payload: string, { rejectWithValue }) => {
+        try {
+            const data = await quanLyNguoiDungService.timKiemNguoiDung(payload)
+            return data.data
+        } catch (error) {
+            return rejectWithValue(error)
+        }
+    }
+)
+export const XoaNguoiDungThunk = createAsyncThunk(
+    'XoaNguoiDung',
+    async (payload: string, { rejectWithValue }) => {
+        try {
+            const data = await quanLyNguoiDungService.xoaNguoiDung(payload)
+            return data.data
+        } catch (error) {
+            return rejectWithValue(error)
         }
     }
 )
