@@ -51,7 +51,7 @@ export const layDanhMucKhoaHocThunk = createAsyncThunk(
 export const xoaKhoaHocThunk = createAsyncThunk(
     'xoaKhoaHoc',
     async (payload: string, { rejectWithValue }) => {
-        console.log('payload', payload)
+        console.log('payloadXoaKhoaHoc', payload)
         try {
             const data = await quanLyKhoaHocService.xoaKhoaHoc(payload)
             return data.data

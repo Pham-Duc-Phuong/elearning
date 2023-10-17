@@ -13,10 +13,10 @@
     @apply block mb-2 font-[700] text-white text-[25px] sm:text-[35px] text-center
   }
   .btn-register{
-    @apply !text-white mt-[15px] sm:mt-[25px] !border-transparent !bg-gradient-to-r hover:!border-transparent !from-cyan-500 !to-blue-500 hover:!bg-gradient-to-bl hover:!text-white focus:!ring-4 focus:!outline-none focus:!ring-cyan-300 !font-medium !rounded-lg !text-[14px]  sm:!text-[17px] !text-center !mr-2 !mb-2 !h-[35px] sm:!h-[40px] !w-full !tracking-widest
+    @apply !text-white !mt-[15px] sm:!mt-[25px] !border-transparent !bg-gradient-to-r hover:!border-transparent !from-cyan-500 !to-blue-500 hover:!bg-gradient-to-bl hover:!text-white focus:!ring-4 focus:!outline-none focus:!ring-cyan-300 !font-medium !rounded-lg !text-[14px]  sm:!text-[17px] !text-center !mr-2 !mb-2 !h-[35px] sm:!h-[40px] !w-full !tracking-widest
   }
   .btn-cancel{
-    @apply !text-white mt-[15px] !border-transparent !bg-gradient-to-r hover:!border-transparent !from-orange-400 !to-red-600 hover:!bg-gradient-to-bl hover:!text-white focus:!ring-4 focus:!outline-none focus:!ring-orange-300 !font-medium !rounded-lg !text-[14px]  sm:!text-[17px] !text-center !mr-2 !mb-2 !h-[35px] sm:!h-[40px] !w-full !tracking-widest
+    @apply !text-white mt-[5px] !border-transparent !bg-gradient-to-r hover:!border-transparent !from-orange-400 !to-red-600 hover:!bg-gradient-to-bl hover:!text-white focus:!ring-4 focus:!outline-none focus:!ring-orange-300 !font-medium !rounded-lg !text-[14px]  sm:!text-[17px] !text-center !mr-2 !mb-2 !h-[35px] sm:!h-[40px] !w-full !tracking-widest
   }
   .btn-reset{
     @apply text-white border-transparent bg-gradient-to-r hover:border-transparent from-blue-700 to-purple-700 hover:bg-gradient-to-bl hover:text-white focus:ring-1 focus:outline-none focus:ring-orange-200 font-medium rounded-md text-[13px]  sm:text-[16px] text-center tracking-widest px-[10px]
@@ -45,10 +45,10 @@
   }
   /* Tabs */
   .tabs{
-    @apply inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white
+    @apply inline-block px-[11px] py-[9px] rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white
   }
   .tabs-active{
-    @apply inline-block px-4 py-3 text-white bg-blue-600 rounded-lg
+    @apply inline-block px-[11px] py-[9px] text-white bg-blue-600 rounded-lg
   }
   /* Card */
   .a-Card{
