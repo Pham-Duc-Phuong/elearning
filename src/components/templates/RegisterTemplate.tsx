@@ -33,8 +33,8 @@ export const RegisterTemplate = () => {
       <Input className="input" label="Email" placeholder="Email" id="email" error={errors?.email?.message} register={register} />
       <Button htmlType="submit" className="btn-register">Đăng ký</Button>
       <div className="flex justify-center">
-                <span className="text-white ml-[15px] cursor-pointer underline" onClick={() => {navigate(PATH.login)}}>Đã có tài khoản !!!</span>
-            </div>
+        <span className="text-white ml-[15px] cursor-pointer underline" onClick={() => { navigate(PATH.login) }}>Đã có tài khoản !!!</span>
+      </div>
     </form>
   )
 }

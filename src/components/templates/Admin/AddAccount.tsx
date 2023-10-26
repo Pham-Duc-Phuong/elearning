@@ -37,8 +37,30 @@ export const AddAccount = () => {
                     <Input colorLabel="black" className="input" label="Mật khẩu" placeholder="Mật khẩu" id="matKhau" error={errors?.matKhau?.message} register={register} />
                     <Input colorLabel="black" className="input" label="Họ tên" placeholder="Họ tên" id="hoTen" error={errors?.hoTen?.message} register={register} />
                     <Input colorLabel="black" className="input" label="Số điện thoại" placeholder="Số điện thoại" id="soDT" error={errors?.soDT?.message} register={register} />
-                    <Input colorLabel="black" className="input" label="Mã nhóm" placeholder="Mã nhóm ( GP01, GP02, ..., GP13)" id="maNhom" error={errors?.maNhom?.message} register={register} />
                     <Input colorLabel="black" className="input" label="Email" placeholder="Email" id="email" error={errors?.email?.message} register={register} />
+                    <div>
+                        <label htmlFor="maNhom" className={cn("label", { "text-black": 'bg-white' })}>Mã nhóm</label>
+                        <select name="maNhom" id="maNhom" className="input" {...register('maNhom')}>
+                            <option value="">Mã loại người dùng</option>
+                            <option value="GP00">GP00</option>
+                            <option value="GP01">GP01</option>
+                            <option value="GP02">GP02</option>
+                            <option value="GP03">GP03</option>
+                            <option value="GP04">GP04</option>
+                            <option value="GP05">GP05</option>
+                            <option value="GP06">GP06</option>
+                            <option value="GP07">GP07</option>
+                            <option value="GP08">GP08</option>
+                            <option value="GP09">GP09</option>
+                            <option value="GP10">GP10</option>
+                            <option value="GP11">GP11</option>
+                            <option value="GP12">GP12</option>
+                            <option value="GP13">GP13</option>
+                        </select>
+                        {
+                            errors?.maNhom && <p className="text-red-600 text-right py-[5px] text-[11px] sm:text-[16px]">{errors?.maNhom.message}</p>
+                        }
+                    </div>
                 </div>
                 <div className="mb-6 sm:h-[70px] h-[50px] mt-[10]">
                     <label htmlFor="maLoaiNguoiDung" className={cn("label", { "text-black": 'bg-white' })}>Mã loại người dùng</label>
