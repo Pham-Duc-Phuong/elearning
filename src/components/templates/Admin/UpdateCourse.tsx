@@ -57,15 +57,15 @@ export const UpdateCourse = () => {
                         <button type="reset" className="btn-reset">reset</button>
                         <button type="reset" className="btn-reset !from-orange-400 !to-red-600 ml-[10px]" onClick={() => { handleCancel() }}>X</button>
                     </div>
-                    <Input className="input" label="Mã khóa học" placeholder="Mã khóa học" id="maKhoaHoc" error={errors?.maKhoaHoc?.message} register={register} />
-                    <Input className="input" label="Bí danh" placeholder="Bí danh" id="biDanh" error={errors?.biDanh?.message} register={register} />
-                    <Input className="input" label="Tên khóa học" placeholder="Tên khóa học" id="tenKhoaHoc" error={errors?.tenKhoaHoc?.message} register={register} />
-                    <Input className="input" label="Mô tả" placeholder="Mô tả" id="moTa" error={errors?.moTa?.message} register={register} />
-                    <Input className="input" label="Lượt xem" placeholder="Lượt xem" id="luotXem" error={errors?.luotXem?.message} register={register} type="number" />
-                    <Input className="input" label="Đánh giá" placeholder="Đánh giá" id="danhGia" error={errors?.danhGia?.message} register={register} type="number" defaultValue={0} />
-                    <Input className="input" label="Hình ảnh" placeholder="Hình ảnh" id="hinhAnh" error={errors?.hinhAnh?.message} register={register} />
-                    <Input className="input" label="Mã nhóm" placeholder="Mã nhóm" id="maNhom" error={errors?.maNhom?.message} register={register} />
-                    <Input className="input" label="Ngày tạo" placeholder="Ngày tạo" id="ngayTao" error={errors?.ngayTao?.message} register={register} defaultValue={today} />
+                    <Input colorLabel="white" className="input" label="Mã khóa học" placeholder="Mã khóa học" id="maKhoaHoc" error={errors?.maKhoaHoc?.message} register={register} />
+                    <Input colorLabel="white" className="input" label="Bí danh" placeholder="Bí danh" id="biDanh" error={errors?.biDanh?.message} register={register} />
+                    <Input colorLabel="white" className="input" label="Tên khóa học" placeholder="Tên khóa học" id="tenKhoaHoc" error={errors?.tenKhoaHoc?.message} register={register} />
+                    <Input colorLabel="white" className="input" label="Mô tả" placeholder="Mô tả" id="moTa" error={errors?.moTa?.message} register={register} />
+                    <Input colorLabel="white" className="input" label="Lượt xem" placeholder="Lượt xem" id="luotXem" error={errors?.luotXem?.message} register={register} type="number" />
+                    <Input colorLabel="white" className="input" label="Đánh giá" placeholder="Đánh giá" id="danhGia" error={errors?.danhGia?.message} register={register} type="number" defaultValue={0} />
+                    <Input colorLabel="white" className="input" label="Hình ảnh" placeholder="Hình ảnh" id="hinhAnh" error={errors?.hinhAnh?.message} register={register} />
+                    <Input colorLabel="white" className="input" label="Mã nhóm" placeholder="Mã nhóm" id="maNhom" error={errors?.maNhom?.message} register={register} />
+                    <Input colorLabel="white" className="input" label="Ngày tạo" placeholder="Ngày tạo" id="ngayTao" error={errors?.ngayTao?.message} register={register} defaultValue={today} />
                     <div className="mb-6 sm:h-[70px] h-[50px]">
                         <label htmlFor="maDanhMucKhoaHoc" className="label">Mã danh mục khóa học</label>
                         <select name="cars" id="maDanhMucKhoaHoc" className="input"  {...register('maDanhMucKhoaHoc')}>
