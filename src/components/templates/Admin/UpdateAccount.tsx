@@ -77,12 +77,12 @@ export const UpdateAccount = () => {
                         <button type="reset" className="btn-reset !from-orange-400 !to-red-600 ml-[10px]" onClick={() => { handleCancel() }}>X</button>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-[20px]">
-                        <Input colorLabel="black" className="input pointer-events-none !text-gray-400" label="Tài khoản" placeholder="Tài khoản" id="taiKhoan" error={errors?.taiKhoan?.message} register={register} />
-                        <Input colorLabel="black" className="input" label="Mật khẩu" placeholder="Mật khẩu" id="matKhau" error={errors?.matKhau?.message} register={register} />
-                        <Input colorLabel="black" className="input" label="Họ tên" placeholder="Họ tên" id="hoTen" error={errors?.hoTen?.message} register={register} />
-                        <Input colorLabel="black" className="input" label="Số điện thoại" placeholder="Số điện thoại" id="soDT" error={errors?.soDT?.message} register={register} />
-                        <Input colorLabel="black" className="input" label="Email" placeholder="Email" id="email" error={errors?.email?.message} register={register} />
-                        <Input colorLabel="black" className="input pointer-events-none !text-gray-400" label="Mã nhóm" placeholder="Mã nhóm" id="maNhom" error={errors?.maNhom?.message} register={register} />
+                        <Input colorLabel="white" className="input pointer-events-none !text-gray-400" label="Tài khoản" placeholder="Tài khoản" id="taiKhoan" error={errors?.taiKhoan?.message} register={register} />
+                        <Input colorLabel="white" className="input" label="Mật khẩu" placeholder="Mật khẩu" id="matKhau" error={errors?.matKhau?.message} register={register} />
+                        <Input colorLabel="white" className="input" label="Họ tên" placeholder="Họ tên" id="hoTen" error={errors?.hoTen?.message} register={register} />
+                        <Input colorLabel="white" className="input" label="Số điện thoại" placeholder="Số điện thoại" id="soDT" error={errors?.soDT?.message} register={register} />
+                        <Input colorLabel="white" className="input" label="Email" placeholder="Email" id="email" error={errors?.email?.message} register={register} />
+                        <Input colorLabel="white" className="input pointer-events-none !text-gray-400" label="Mã nhóm" placeholder="Mã nhóm" id="maNhom" error={errors?.maNhom?.message} register={register} />
                     </div>
                     <div className="mb-6 sm:h-[70px] h-[50px] sm:mt-[20px]">
                         <label htmlFor="maLoaiNguoiDung" className='label'>Mã loại người dùng</label>
