@@ -51,8 +51,8 @@ export const LoginTemplate = () => {
                 <div className="flex items-center justify-between">
                     <h1 className="title">Đăng nhập</h1>
                     <div className="flex items-center justify-between bg-red-600 hover:bg-red-800 p-2 rounded-lg" onClick={() => { setOpenCopyUser(true) }}>
-                        <i className="fa-regular fa-user text-white text-[18px] mr-2"></i>
-                        <span className="text-white font-[500]">Lấy tài khoản</span>
+                        <i className="fa-regular fa-user text-white text-[9px] sm:text-[18px] mr-2"></i>
+                        <span className="text-white font-[500] text-[9px] sm:text-[16px]">Lấy tài khoản</span>
                     </div>
                 </div>
                 <Input className="input" label="Tài khoản" placeholder="Tài khoản" id="taiKhoan" error={errors?.taiKhoan?.message} register={register} defaultValue={'phuongporo801'} />
