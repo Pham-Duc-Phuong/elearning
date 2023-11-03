@@ -45,10 +45,10 @@
   }
   /* Tabs */
   .tabs{
-    @apply inline-block px-[11px] py-[9px] rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white
+    @apply inline-block px-[11px] py-[9px] border rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white
   }
   .tabs-active{
-    @apply inline-block px-[11px] py-[9px] text-white bg-blue-600 rounded-lg
+    @apply inline-block px-[11px] py-[9px] text-white bg-blue-600 rounded-lg border
   }
   /* Card */
   .a-Card{

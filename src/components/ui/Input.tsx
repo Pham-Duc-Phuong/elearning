@@ -12,7 +12,7 @@ type InputProps = {
     error?: string
     hidden?: boolean
     colorLabel?: string
-    value?: number
+    value?: any
     defaultValue?:any
     disabled?: boolean
 }
