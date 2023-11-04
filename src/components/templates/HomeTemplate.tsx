@@ -129,11 +129,11 @@ export const HomeTemplate = () => {
       </div>
       <div className="mt-[30px]">
         <div>
-          <ul className="md:flex md:flex-wrap phone:grid sm:grid-cols-3 phone:grid-cols-2 sm:text-sm phone:text-[11px] font-medium text-center text-gray-500 dark:text-gray-400 border-b pb-[15px]">
+          <ul className="md:flex gap-2 md:flex-wrap phone:grid sm:grid-cols-3 phone:grid-cols-2 sm:text-sm phone:text-[11px] font-medium text-center text-gray-500 dark:text-gray-400 border-b pb-[15px]">
             {
               DanhMucKhoaHoc?.map((a, index) => (
                 <li key={index} className="mr-2">
-                  <p className={activeTabs === `${a.maDanhMuc}` ? 'tabs-active' : 'tabs'} onClick={() => ActiveTabs(`${a.maDanhMuc}`)}>{a.tenDanhMuc}</p>
+                  <p className={activeTabs === `${a.maDanhMuc}` ? 'tabs-active !w-full' : 'tabs !w-full'} onClick={() => ActiveTabs(`${a.maDanhMuc}`)}>{a.tenDanhMuc}</p>
                 </li>
               ))
             }
@@ -142,7 +142,7 @@ export const HomeTemplate = () => {
         {
           DanhMucKhoaHoc?.map((a, index) => (
             <div key={index} className={activeTabs === `${a.maDanhMuc}` ? 'block mt-[30px]' : 'hidden'}>
-              <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 phone:grid-cols-1 gap-[50px]">
+              <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 phone:grid-cols-1 gap-[50px]">
                 {
                   layKhoaHocTheoMuc?.map((a, index) => (
                     <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between">
