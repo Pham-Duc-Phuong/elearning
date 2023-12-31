@@ -29,7 +29,6 @@ export const HomeTemplate = () => {
         setActiveCarousel(prevState => prevState + 1);
       }, 3000); // chờ 2 giây trước khi tăng
 
-      // Khúc này bị rò rỉ bộ nhớ (xem ở buổi 43) cần phải dọn dẹp khi component unmount
       return () => clearInterval(intervalId);
     }
   }, [activeCarousel])
